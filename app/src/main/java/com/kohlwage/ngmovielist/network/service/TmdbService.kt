@@ -26,8 +26,8 @@ interface TmdbService {
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
-        @Query("api_key") apiKey: String = "38cf814d15e89359a2703e77b1f1e64c",
         @Path("movie_id") movieId: String,
+        @Query("api_key") apiKey: String = "38cf814d15e89359a2703e77b1f1e64c",
     )
             : MovieResponse
 

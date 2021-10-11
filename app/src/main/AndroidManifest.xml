@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NGMovielist">
         <activity
-            android:name=".ui.list.MovieListActivity"
+            android:name=".ui.MoviesActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.NGMovielist.NoActionBar">

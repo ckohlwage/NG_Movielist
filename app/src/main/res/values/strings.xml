@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">NG Movielist</string>
+    <string name="app_name">NG Movies</string>
     <string name="no_movies">No movies found</string>
     <string name="action_settings">Settings</string>
+    <string name="vote_average">Rating: %s</string>
+    <string name="vote_count">%d votes</string>
+    <string name="budget_in_dollar">%d $</string>
+    <string name="runtime">Runtime %d min</string>
+    <string name="original_title">(Orig.: %s)</string>
+    <string name="synopsis">Overview</string>
+    <string name="spoken_languages">Spoken Languages</string>
+    <string name="production_countries">Produced in</string>
+    <string name="producers">Produced by</string>
+    <string name="rating">Rating</string>
+    <string name="budget">Budget</string>
+    <string name="detail_load_error">Could not load movie details! Click to retry!</string>
+
 </resources>
