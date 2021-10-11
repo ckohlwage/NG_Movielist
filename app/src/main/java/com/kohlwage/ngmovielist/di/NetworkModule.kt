@@ -1,7 +1,7 @@
 package com.kohlwage.ngmovielist.di
 
 import com.kohlwage.ngmovielist.BuildConfig
-import com.kohlwage.ngmovielist.network.service.TmdbService
+import com.kohlwage.ngmovielist.network.service.MovieDBService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,7 +42,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideTmdbService(retrofit: Retrofit): TmdbService = retrofit.create()
+    fun provideTmdbService(retrofit: Retrofit): MovieDBService = retrofit.create()
 
 
     inner class ApiKeyInterceptor : Interceptor {

@@ -71,7 +71,7 @@ dependencies {
 
     // Glide
     implementation libs.glide
-    annotationProcessor libs.glideCompiler
+    kapt libs.glideCompiler
 
     implementation libs.appCompat
     implementation libs.activity
@@ -81,7 +81,10 @@ dependencies {
     implementation libs.constraint
 
     testImplementation libs.junit
+    testImplementation libs.testRules
+    testImplementation libs.testCore
     testImplementation libs.mockito
+    testImplementation libs.mockitoInline
     androidTestImplementation libs.junitAndroid
     androidTestImplementation libs.espresso
 }

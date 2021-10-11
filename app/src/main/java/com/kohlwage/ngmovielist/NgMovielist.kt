@@ -5,14 +5,13 @@ import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
-class NgMovielist: Application() {
+class NgMovielist : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if(BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
     }
 }
 

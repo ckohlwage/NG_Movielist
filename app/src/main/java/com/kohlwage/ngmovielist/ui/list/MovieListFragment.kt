@@ -65,26 +65,17 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
                     }
                 }
             }
-
-
         binding.swipeRefresh.setOnRefreshListener { movieAdapter.refresh() }
         binding.error.setOnClickListener { movieAdapter.retry() }
-
     }
 
     private fun handleLoadStates(loadState: CombinedLoadStates) {
         val isListEmpty = loadState.refresh is LoadState.NotLoading && movieAdapter.itemCount == 0
 
-        // Show empty state if list is empty
         binding.movieEmptyState.isVisible = isListEmpty
-        // Show list if it is not empty
         binding.movieRecycler.isVisible = !isListEmpty
-
-        // Only shows the list if refresh succeeds.
         binding.movieRecycler.isVisible = loadState.source.refresh is LoadState.NotLoading
-        // Show loading spinner during initial load or refresh.
         binding.swipeRefresh.isRefreshing = loadState.source.refresh is LoadState.Loading
-        // Show the retry state if initial load or refresh fails.
         binding.error.isVisible = loadState.source.refresh is LoadState.Error
     }
 

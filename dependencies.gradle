@@ -21,6 +21,10 @@ versions.junit = "4.13.2"
 versions.junitAndroid = "1.1.3"
 versions.espresso = "3.4.0"
 versions.mockito = "3.2.0"
+versions.mockitoCore = "3.2.0"
+versions.testRules = "1.4.0"
+versions.testRunner = "1.4.1"
+versions.testCore = "2.1.0"
 ext.versions = versions
 
 def defaultBuild = [:]
@@ -69,7 +73,13 @@ libs.constraint = "androidx.constraintlayout:constraintlayout:$versions.constrai
 
 libs.junit = "junit:junit:$versions.junit"
 libs.junitAndroid = "androidx.test.ext:junit:$versions.junitAndroid"
-libs.mockito = "org.mockito.kotlin:mockito-kotlin:3.2.0"
+libs.mockito = "org.mockito.kotlin:mockito-kotlin:$versions.mockito"
+libs.mockitoCore =  "org.mockito:mockito-core:$versions.mockitoCore"
+libs.mockitoInline = "org.mockito:mockito-inline:$versions.mockito"
+libs.testRules = "androidx.test:rules:$versions.testRules"
+libs.testRunner = "androidx.test:runner:$versions.atsl_runner"
+libs.testCore = "androidx.arch.core:core-testing:$versions.testCore"
 libs.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+libs.coroutineTests = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines"
 
 ext.libs = libs
