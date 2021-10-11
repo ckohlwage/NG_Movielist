@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.GridLayoutManager
 import com.kohlwage.ngmovielist.R
 import com.kohlwage.ngmovielist.databinding.FragmentMovieListBinding
 import com.kohlwage.ngmovielist.pictures.PictureLoader
@@ -52,6 +53,19 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
             footer = MovieLoadStateAdapter { movieAdapter.retry() }
         )
         movieAdapter.addLoadStateListener { loadState -> handleLoadStates(loadState) }
+        val layoutManager: GridLayoutManager =
+            binding.movieRecycler.layoutManager as GridLayoutManager
+        layoutManager.spanSizeLookup =
+            object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    val spanCount = resources.getInteger(R.integer.movie_list_span_count)
+                    return when (movieAdapter.getItemViewType(position)) {
+                        MovieListAdapter.MOVIE_VIEW_TYPE -> 1
+                        else -> spanCount
+                    }
+                }
+            }
+
 
         binding.swipeRefresh.setOnRefreshListener { movieAdapter.refresh() }
         binding.error.setOnClickListener { movieAdapter.retry() }
@@ -69,7 +83,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
         // Only shows the list if refresh succeeds.
         binding.movieRecycler.isVisible = loadState.source.refresh is LoadState.NotLoading
         // Show loading spinner during initial load or refresh.
-        binding.progress.isVisible = loadState.source.refresh is LoadState.Loading
+        binding.swipeRefresh.isRefreshing = loadState.source.refresh is LoadState.Loading
         // Show the retry state if initial load or refresh fails.
         binding.error.isVisible = loadState.source.refresh is LoadState.Error
     }

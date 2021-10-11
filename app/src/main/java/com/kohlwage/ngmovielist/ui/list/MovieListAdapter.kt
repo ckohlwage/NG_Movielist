@@ -19,9 +19,20 @@ class MovieListAdapter @Inject constructor(private val pictureLoader: PictureLoa
         return MovieListViewHolder(binding, pictureLoader)
     }
 
+    override fun getItemViewType(position: Int): Int =
+        if (position == itemCount) {
+            STATE_VIEW_TYPE
+        } else {
+            MOVIE_VIEW_TYPE
+        }
+
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
         val item = getItem(position) ?: return
         holder.onBind(item)
     }
 
+    companion object {
+        const val MOVIE_VIEW_TYPE = 0
+        const val STATE_VIEW_TYPE = 1
+    }
 }

@@ -15,7 +15,5 @@ class MovieLoadStateAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         loadState: LoadState
-    ): MovieLoadStateViewHolder {
-        return MovieLoadStateViewHolder.create(parent, retry)
-    }
+    ): MovieLoadStateViewHolder = MovieLoadStateViewHolder.create(parent, retry)
 }

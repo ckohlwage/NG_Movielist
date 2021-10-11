@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class PagedMovieListRepository @Inject constructor(
     private val service: TmdbService,
-    private val query: String?
+    private val searchQuery: String?
 ) : PagingSource<Int, Movie>() {
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? =
@@ -23,8 +23,8 @@ class PagedMovieListRepository @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> =
             try {
                 val nextPage = params.key ?: 1
-                val response = query?.let {
-                    service.searchMovies(it, query)
+                val response = searchQuery?.let {
+                    service.searchMovies(searchString = it, page = nextPage)
                 } ?: service.getMovieList(page = nextPage)
                 LoadResult.Page(
                     data = response.results.map { it.asMovie() },

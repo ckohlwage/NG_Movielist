@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.list.MovieListFragment">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.kohlwage.ngmovielist.ui.list.MovieListViewModel" />
-    </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +27,8 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/movie_recycler"
@@ -42,23 +36,12 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
-                android:paddingTop="?actionBarSize"
                 android:paddingBottom="@dimen/simple_padding_large"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:spanCount="@integer/movie_list_span_count"
                 tools:listitem="@layout/movie_list_item" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/movie_empty_state"
@@ -67,7 +50,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/no_movies"
-            android:textSize="@dimen/text_size_big"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:visibility="gone"
             app:drawableTopCompat="@drawable/ic_movie_clapper" />
 
@@ -75,13 +58,13 @@
             android:id="@+id/error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="@string/detail_load_error"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:visibility="gone"
             app:drawableTopCompat="@drawable/ic_error"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:visibility="visible" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

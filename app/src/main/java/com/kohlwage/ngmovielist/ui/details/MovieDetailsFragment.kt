@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.kohlwage.ngmovielist.databinding.FragmentMovieDetailsBinding
 import com.kohlwage.ngmovielist.pictures.PictureLoader
 import com.kohlwage.ngmovielist.ui.list.MovieListFragment.Companion.MOVIE_ID
@@ -47,6 +48,9 @@ class MovieDetailsFragment : Fragment() {
 
     private fun initViews() {
         binding.error.setOnClickListener { loadMovieDetails() }
+        binding.close.setOnClickListener {
+            Navigation.findNavController(binding.close).popBackStack()
+        }
     }
 
     private fun initObservers() {

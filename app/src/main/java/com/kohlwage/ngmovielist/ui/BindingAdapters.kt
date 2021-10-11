@@ -14,3 +14,4 @@ fun setList(textView: TextView, list: List<ListWithNames>?) {
     textView.text = builder.toString()
 }
 
+
