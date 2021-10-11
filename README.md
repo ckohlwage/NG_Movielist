@@ -1,6 +1,5 @@
-## Latest Movies
 
----
+## Latest Movies
 
 This is a simple app loading the latest movies from https://www.themoviedb.org/. It supports
 infinite scrolling and a detail screen for each movie.
