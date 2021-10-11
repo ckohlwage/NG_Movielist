@@ -7,13 +7,11 @@ infinite scrolling and a detail screen for each movie.
 
 ## Usage
 
----
 
 The Api Key is supplied in the build.gradle default config. Please replace this with your own key.
 
 ## Architecture
 
----
 
 MVVM is the base architecture for the complete app. Navigation is handled by the jetpack navigation
 component.
@@ -31,7 +29,6 @@ The basic Unit test use mockito.
 
 ## Known issues
 
----
 
 - Unit testing is basic
 - I need a designer to supply taste
